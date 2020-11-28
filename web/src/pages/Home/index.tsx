@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { useHistory} from 'react-router-dom';
 
 import { ContainerHome, LogoContent, Messages, ContentMessages, Navigation, OptionCircle,ButtonToNext} from './styles';
@@ -22,20 +22,24 @@ const Home = () => {
     const history = useHistory();
     const [indexMessage, setIndexMessage] = useState(1);
 
-    window.setInterval(()=> {
+
+    useEffect(()=> {
+        window.setInterval(()=> {
 
 
-        if(indexMessage < 4) {
-            setMessageSelected(arrayMessages[indexMessage])
-            setIndexMessage(indexMessage + 1);
-        
-        } else {
-            setIndexMessage(0);
-        }
- 
-
-      
-    }, 12000)  
+            if(indexMessage < 4) {
+                setMessageSelected(arrayMessages[indexMessage])
+                setIndexMessage(indexMessage + 1);
+            
+            } else {
+                setIndexMessage(0);
+            }
+     
+    
+          
+        }, 12000)
+    },[indexMessage])
+   
     return (
         <>
 

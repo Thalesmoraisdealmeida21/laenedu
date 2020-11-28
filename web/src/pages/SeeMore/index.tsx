@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom';
 
 import { ContainerHome, LogoContent, FormContainer, ButtonToNext } from './styles';
 
+
 import logo from './../../assets/logo.png'
 import api from '../../services/api';
 
@@ -19,6 +20,7 @@ const Home = () => {
        try {
         api.post("/reserve_account", data);
         
+
 
         alert("Recebemos seu contato, verifique seu e-mail !");
       
