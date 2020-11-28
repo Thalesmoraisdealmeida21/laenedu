@@ -20,55 +20,43 @@ export const LogoContent = styled.div`
 `;
 
 
-export const Messages = styled.div`
+export const FormContainer = styled.div`
         background: #373636;
         color: #fff;
         width: 100%;
         display: flex;
       
-    
+
+      form {
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+
+            span {
+                margin-left: 10px;
+              
+            }
+          input {
+              height: 40px;
+              border-radius: 25px;
+              margin: 10px;
+              border: transparent;
+              padding: 20px;
+          }
+
+          button {
+              height: 40px;
+              background: #FF8D27;
+              border: transparent;
+              border-radius: 8px;
+              margin-top: 30px;
+              width: 250px;
+              margin: 20px auto;
+              
+          }
+      }
 
 `;
-
-
-export const ContentMessages = styled.div`
-        width: 250px;
-        margin: auto 0;
-        margin-left: 100px;
-
-        h1 {
-            font-weight: 700;
-        }
-
-        p {
-            margin-top: 16px;
-            height: 150px;
-        }
-`;
-
-export const Navigation = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-top: auto;
-
-`;
-
-
-export const OptionCircle = styled.div<ActiveItemInterface>`
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    background: white;
-    margin: 10px;
-    cursor: pointer;
-    transition: 0.4s;
-    box-shadow: ${props => props.isActive ? '0px 0px 0px 6px #696666' : '0px'};
-
-    &:hover {
-        box-shadow: 0px 0px 0px 6px #696666;
-    }
-`;
-
 
 export const ButtonToNext = styled.button`
      background: #FF8D27;
@@ -93,6 +81,5 @@ export const ButtonToNext = styled.button`
      }
 
 `;
-
 
 

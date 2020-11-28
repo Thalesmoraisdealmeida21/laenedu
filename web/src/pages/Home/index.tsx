@@ -1,8 +1,11 @@
 import React, { useState} from 'react';
+import { useHistory} from 'react-router-dom';
 
 import { ContainerHome, LogoContent, Messages, ContentMessages, Navigation, OptionCircle,ButtonToNext} from './styles';
 import Header from './../../components/Header';
 import logo from './../../assets/logo.png'
+
+
 
 const arrayMessages = [
     "A LAENEDU auxilia no desenvolvimento e engajamento de colaboradores por meio de ações em parcerias com instituições e projetos sociais.",
@@ -13,6 +16,7 @@ const arrayMessages = [
 
 const Home = () => {
     const [messageSelected, setMessageSelected] = useState(arrayMessages[0]);
+    const history = useHistory();
     return (
         <>
 
@@ -51,8 +55,10 @@ const Home = () => {
                    
                     </ContentMessages>
             
-                    <ButtonToNext>
-                    <span>></span>
+                    <ButtonToNext onClick={()=> {
+                        history.push('/seemore');
+                    }}>
+                    <span>{">"}</span>
                     </ButtonToNext>
                 </Messages>
 
