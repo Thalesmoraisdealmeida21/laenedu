@@ -23,10 +23,7 @@
     <img alt="and Silvana Elert" src="https://img.shields.io/badge/,-Silvana Elert-%2300FF00">
   </a>
 
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-%2300FF00">
-</p>
-
- <a href="https://www.linkedin.com/in/silvana-elert">
+ <a href="https://www.linkedin.com/in/carolinesdias/">
     <img alt="and Caroline Dias" src="https://img.shields.io/badge/,-Caroline Dias-%2300FF00">
   </a>
 
