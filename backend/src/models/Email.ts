@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('reserve_account')
-export default class {
+export default class Email {
   @PrimaryGeneratedColumn('increment')
   id: number;
 

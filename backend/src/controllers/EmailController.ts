@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
+import * as Yup from 'yup';
 
 import Email from '../models/Email';
+import EmailViews from '../views/email _views';
 
 export default {
   async index(request: Request, response: Response) {
@@ -9,7 +11,7 @@ export default {
 
     const emails = await emailRepository.find();
 
-    return response.json(emails);
+    return response.json(EmailViews.renderMany(emails));
   },
 
   async show(request: Request, response: Response) {
@@ -19,23 +21,32 @@ export default {
 
     const email = await emailRepository.findOneOrFail(id);
 
-    return response.json(email);
+    return response.json(EmailViews.render(email));
   },
 
   async create(request: Request, response: Response) {
     const {
-      id,
       name,
       email,
     } = request.body;
     
     const emailRepository = getRepository(Email);
     
-    const emails = emailRepository.create({
-      id,
+    const data = {
       name,
       email,
+    };
+
+    const schema = Yup.object().shape({
+      name: Yup.string().required(),
+      email: Yup.string().required(),
     });
+
+    await schema.validate(data, {
+      abortEarly: false,
+    });
+
+    const emails = emailRepository.create(data);
     
     await emailRepository.save(emails);
     
