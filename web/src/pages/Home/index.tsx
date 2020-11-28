@@ -25,11 +25,6 @@ const Home = () => {
     window.setInterval(()=> {
 
 
-    
-       
-      
-   
-
         if(indexMessage < 4) {
             setMessageSelected(arrayMessages[indexMessage])
             setIndexMessage(indexMessage + 1);
@@ -40,14 +35,14 @@ const Home = () => {
  
 
       
-    }, 6000)  
+    }, 12000)  
     return (
         <>
 
             <ContainerHome>
                 
                 <LogoContent>
-                    <img src={logo}></img>
+                    <img src={logo} alt="logo"></img>
                 </LogoContent>
 
 
