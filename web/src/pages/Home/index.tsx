@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import { useHistory} from 'react-router-dom';
 
 import { ContainerHome, LogoContent, Messages, ContentMessages, Navigation, OptionCircle,ButtonToNext} from './styles';
-import Header from './../../components/Header';
+
 import logo from './../../assets/logo.png'
 
 
@@ -14,16 +14,35 @@ const arrayMessages = [
     "Recebendo o reconhecimento da sociedade e também de outros colegas, assim melhoram ou desenvolvem novas competências e habilidades participando do desenvolvimento da sociedade."
 ]
 
+
+
+
 const Home = () => {
     const [messageSelected, setMessageSelected] = useState(arrayMessages[0]);
     const history = useHistory();
+    const [indexMessage, setIndexMessage] = useState(1);
+
+    window.setInterval(()=> {
+
+
+        if(indexMessage < 4) {
+            setMessageSelected(arrayMessages[indexMessage])
+            setIndexMessage(indexMessage + 1);
+        
+        } else {
+            setIndexMessage(0);
+        }
+ 
+
+      
+    }, 12000)  
     return (
         <>
 
             <ContainerHome>
                 
                 <LogoContent>
-                    <img src={logo}></img>
+                    <img src={logo} alt="logo"></img>
                 </LogoContent>
 
 
@@ -39,15 +58,20 @@ const Home = () => {
                     <Navigation>
                             <OptionCircle isActive={ messageSelected === arrayMessages[0] ? true : false} onClick={()=> {
                                 setMessageSelected(arrayMessages[0])
+                                setIndexMessage(0)
+                                
                             }}></OptionCircle>
                             <OptionCircle  isActive={ messageSelected === arrayMessages[1] ? true : false}onClick={()=> {
                                 setMessageSelected(arrayMessages[1])
+                                setIndexMessage(0)
                             }}></OptionCircle>
                             <OptionCircle  isActive={ messageSelected === arrayMessages[2] ? true : false} onClick={()=> {
                                 setMessageSelected(arrayMessages[2])
+                                setIndexMessage(0)
                             }}></OptionCircle>
                             <OptionCircle isActive={ messageSelected === arrayMessages[3] ? true : false} onClick={()=> {
                                 setMessageSelected(arrayMessages[3])
+                                setIndexMessage(0)
                             }}></OptionCircle>
                     </Navigation>
 

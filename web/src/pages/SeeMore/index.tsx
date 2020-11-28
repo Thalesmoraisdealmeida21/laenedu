@@ -1,39 +1,65 @@
-import React, { useState} from 'react';
+import React, { useCallback, useState } from 'react';
 import {useHistory} from 'react-router-dom';
 
 import { ContainerHome, LogoContent, FormContainer, ButtonToNext } from './styles';
-import Header from './../../components/Header';
-import logo from './../../assets/logo.png'
 
-const arrayMessages = [
-    "A LAENEDU auxilia no desenvolvimento e engajamento de colaboradores por meio de ações em parcerias com instituições e projetos sociais.",
-    "O RH alimenta a plataforma com resultados de testes que apontam quais são os pontos de melhoria dos colaboradores",
-    "Os colaboradores tem acesso a cursos com parceiros e atividades sociais que ajudam no desenvolvimento de  skills que lhes são importantes.",
-    "Recebendo o reconhecimento da sociedade e também de outros colegas, assim melhoram ou desenvolvem novas competências e habilidades participando do desenvolvimento da sociedade."
-]
+import logo from './../../assets/logo.png'
+import api from '../../services/api';
+
 
 const Home = () => {
-    const [messageSelected, setMessageSelected] = useState(arrayMessages[0]);
+  
 
     const history = useHistory();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+
+    const handleSubmit = useCallback((data: { name: string; email: string})=> {
+       
+       try {
+        api.post("/reserve_account", data);
+        
+
+        alert("Recebemos seu contato, verifique seu e-mail !");
+      
+       } catch {
+           alert("Ocorreu um erro :(")
+       }
+
+    },[])
+
+
     return (
         <>
 
             <ContainerHome>
                 
                 <LogoContent>
-                    <img src={logo}></img>
+                    <img src={logo} alt=""></img>
                 </LogoContent>
 
 
                 <FormContainer>     
-                      <form>
+                      <form onSubmit={(evt) => {
+
+                          evt.preventDefault();
+
+                         
+                          handleSubmit( {
+                              email,
+                              name
+                          });
+                      }}>
                           <h1>Interessados ? <br />Saiba Mais:</h1>
                           <span>Nome</span>
-                        <input name="name"></input>
+                        <input name="name" value={name} onChange={(evt)=> {
+                            setName(evt.target.value);
+                        }}></input>
 
                         <span>E-mail</span>
-                        <input name="name"></input>
+                        <input name="email" value={email} onChange={(evt)=> {
+                            setEmail(evt.target.value);
+                        }}></input>
                         <button>
                             Enviar
                         </button>
