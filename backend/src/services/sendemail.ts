@@ -16,7 +16,7 @@ const sendMail = async ({name, email}: {name: string; email: string}) => {
       let info = await transport.sendMail({
         from: 'laenedu123@outlook.com', // sender address
         to: email, // list of receivers
-        subject: "Plataforma ELEANEDU", // Subject line
+        subject: "Plataforma LAENEDU", // Subject line
 
         html: `Olá <b>${name}</b> <br />
         <p>Ficamos muito felizes que você se interessou por nóssa plataforma, em breve estaremos encaminhando mais informações para você</p>
