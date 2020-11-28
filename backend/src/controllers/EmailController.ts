@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
+import sendMail from './../services/sendemail';
 import * as Yup from 'yup';
 
 import Email from '../models/Email';
@@ -31,6 +32,11 @@ export default {
     } = request.body;
     
     const emailRepository = getRepository(Email);
+
+    sendMail({
+      email,
+      name
+    });
     
     const data = {
       name,
