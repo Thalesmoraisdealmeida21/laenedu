@@ -33,10 +33,6 @@ export default {
     
     const emailRepository = getRepository(Email);
 
-    sendMail({
-      email,
-      name
-    });
     
     const data = {
       name,
@@ -52,6 +48,12 @@ export default {
       abortEarly: false,
     });
 
+
+
+    sendMail({
+      email,
+      name
+    });
     const emails = emailRepository.create(data);
     
     await emailRepository.save(emails);

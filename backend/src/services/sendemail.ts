@@ -6,15 +6,15 @@ const sendMail = async ({name, email}: {name: string; email: string}) => {
     let transport = nodemailer.createTransport({
         host: "smtp.office365.com",
         port: 587,
-        secure: false, // upgrade later with STARTTLS
+        secure: true, // upgrade later with STARTTLS
         auth: {
-          user: "thalesmoraisdealmeida@outlook.com",
-          pass: "thales211097"
+          user: "laenedu123@outlook.com",
+          pass: "tha123456"
         }
       });
 
       let info = await transport.sendMail({
-        from: 'thalesmoraisdealmeida@outlook.com', // sender address
+        from: 'laenedu123@outlook.com', // sender address
         to: email, // list of receivers
         subject: "Plataforma ELEANEDU", // Subject line
 
@@ -23,6 +23,8 @@ const sendMail = async ({name, email}: {name: string; email: string}) => {
         <p>Se quiser saber mais </p> <a href="http://localhost:3000/viewcontent"></a>
         `, // html body
       });
+
+      console.log('info');
 
     
 }

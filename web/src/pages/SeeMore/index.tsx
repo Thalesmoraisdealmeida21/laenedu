@@ -22,7 +22,7 @@ const Home = () => {
         
 
 
-        alert("Recebemos seu contato, verifique seu e-mail !");
+        alert("Recebemos seu contato, assim que a plataforma estiver disponivel você será notificado !!");
       
        } catch {
            alert("Ocorreu um erro :(")
